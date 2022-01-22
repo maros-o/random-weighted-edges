@@ -3,7 +3,7 @@ import random
 
 pygame.font.init()
 
-X, Y = 20, 14
+X, Y = 50, 30
 HALF_X = X//2
 HALF_Y = Y//2
 BLOCK_SIZE = 32
@@ -93,7 +93,7 @@ def draw_window(nodes, edges):
     pygame.display.update()
 
 def main():
-    pygame.display.set_caption("Hamiltonian Cycle")
+    pygame.display.set_caption("nodes with random weighted edges")
 
     nodes = create_nodes()
     edges = create_edges()
