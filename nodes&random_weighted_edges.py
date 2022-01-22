@@ -3,7 +3,7 @@ import random
 
 pygame.font.init()
 
-X, Y = 50, 30
+X, Y = 30, 20
 HALF_X = X//2
 HALF_Y = Y//2
 BLOCK_SIZE = 32
@@ -58,6 +58,7 @@ def draw_edges(nodes, edges):
                 color = (200 - weight * weight_color_power, 200 - weight * weight_color_power, 200 - weight * weight_color_power)
 
                 pygame.draw.line(WIN, color, [start[0] * BLOCK_SIZE, start[1] * BLOCK_SIZE], [end[0] * BLOCK_SIZE, end[1] * BLOCK_SIZE ], weight * 3)
+                pygame.display.update()
 
 
 def create_nodes():
@@ -71,11 +72,12 @@ def draw_nodes(nodes):
             pos_x, pos_y = nodes[x][y].get_pos()
             number = nodes[x][y].get_number()
 
-            circle_radius = 14
+            circle_radius = 18
             pygame.draw.circle(WIN, NODECOLOR, [pos_x * BLOCK_SIZE, pos_y * BLOCK_SIZE], circle_radius)
 
             text = FONT.render(str(number), 1, TEXTCOLOR)
             WIN.blit(text, (pos_x * BLOCK_SIZE - text.get_rect().width // 2, pos_y * BLOCK_SIZE - text.get_rect().height // 2))
+            pygame.display.update()
 
 def draw_grid():
     for x in range(1, X):
